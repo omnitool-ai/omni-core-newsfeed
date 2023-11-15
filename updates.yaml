@@ -48,10 +48,13 @@
 - categories:
     - updates
     - new_features
-  color: '#ff8040'
-  faicon: computer
+  color: green
+  faicon: pen
   datetime: 2023-11-15 16:57
   title: Omnitool 0.5.3 Update
+  image:
+    link: /favicon.jpg
+    src: /favicon.jpg
   body: >-
     **Code Cleanup**:
 
@@ -70,7 +73,7 @@
     **Debugging and Error Handling Enhancements**:
 
     - Improved extension logging.  
-    
+
     - Added new error code mapping.
 
 
@@ -78,8 +81,9 @@
 
     - Enabled toggle disable on block to mark recipe as dirty.  
 
-    - Added new tldraw extension for quickly scribbling sketches for diffusions  
-    models or visual transformers (“make a website based on this diagram”).  
+    - Added new tldraw extension for quickly scribbling sketches for
+    diffusions   models or visual transformers (“make a website based on this
+    diagram”).  
 
     - Introduced support for HTML type and image arrays.  
 
