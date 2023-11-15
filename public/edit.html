@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Editor</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        const OmniSDKClient = window.parent.client.SDK;
+        const sdk = new OmniSDKClient("omni-core-newsfeed").init();
+    </script>
+    <style>
+        /* Custom CSS (if needed) */
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-sans leading-normal tracking-normal">
+
+    <div x-data="newsEditor()" class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <div class="mb-4 text-right">
+            <button 
+            x-show="!showForm"
+            @click="prepareAddNews()" class="flex items-center justify-center bg-pastel-blue hover:bg-pastel-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                </svg>
+                Add News
+            </button>
+        </div>
+
+        <!-- Add/Edit News Form -->
+        <div x-show="showForm" class="bg-white dark:bg-gray-700 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="mb-4">
+                <label class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" for="title">Title:</label>
+                <input type="text" x-model="currentItem.title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline" id="title"/>
+
+                <div class="flex flex-wrap -mx-3 mb-4">
+                    <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+                        <label class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" for="datetime">Date and Time:</label>
+                        <input type="datetime-local" x-model="currentItem.datetime" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline" id="datetime"/>
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" for="categories">Categories:</label>
+                        <input type="text" x-model="currentItem.categories" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline" id="categories"/>
+                    </div>
+                </div>
+                
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+                        <label class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" for="color">Color:</label>
+                        <input type="color" x-model="currentItem.color" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" id="color"/>
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" for="faicon">Icon:</label>
+                        <input type="text" x-model="currentItem.faicon" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline" id="faicon"/>
+                    </div>
+                </div>     
+                <label class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" for="body">Body:</label>
+                <textarea x-model="currentItem.body" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline" id="body"></textarea>
+
+                <div class="flex items-center justify-between mt-4">
+                    <button @click="formMode === 'add' ? addNews() : updateNews()" 
+                            class="flex items-center justify-center bg-green-400 hover:bg-green-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span x-text="formMode === 'add' ? 'Add' : 'Update'"></span>
+                    </button>
+                    <button @click="showForm = false" class="flex items-center justify-center bg-red-400 hover:bg-red-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- News List -->
+        <div class="news-list">
+            <template x-for="newsItem in news" :key="newsItem.id">
+                <div class="bg-white dark:bg-gray-700 p-4 border-b border-gray-200 dark:border-gray-600 mb-1 rounded hover:shadow">
+                    <h2 x-text="newsItem.title" class="text-xl font-bold mb-2"></h2>
+                    <p text-sm x-text="newsItem.datetime"></p>
+                    <!-- Additional details here -->
+                    <div class="flex space-x-4">
+                        <button @click="prepareEditNews(newsItem)" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Edit</button>
+                        <button @click="deleteNews(newsItem.id)" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Delete</button>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+    <script>
+        // Tailwind Dark Mode Switch
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            }
+        });
+    </script>
+
+<script>
+ 
+
+    
+    function sanitizeString(str) {
+        return str.replace(/[^a-zA-Z0-9]/g, '-'); // Replace non-alphanumeric characters with hyphens
+    }
+
+    function generateId(datetime, title) {
+        return `${sanitizeString(datetime)}-${sanitizeString(title)}`;
+    }
+
+
+    function newsEditor() {
+    return {
+        news: [],
+        showForm: false,
+        formMode: 'add', // 'add' or 'edit'
+        currentItem: {}, // Object to hold the currently adding/editing item's data
+
+        // Utility function to sanitize strings
+        sanitizeString(str) {
+            return str.replace(/[^a-zA-Z0-9]/g, '-'); // Replace non-alphanumeric characters with hyphens
+        },
+
+        // Utility function to generate ID
+        generateId(datetime, title) {
+            return `${this.sanitizeString(datetime)}-${this.sanitizeString(title)}`;
+        },
+
+        // Prepares the form for adding a new news item
+        prepareAddNews() {
+            this.currentItem = {
+                categories: '',
+                color: '#000000', // Default color
+                faicon: '',
+                datetime: new Date().toISOString().slice(0, 16).replace("T",' ') // Current time in YYYY-MM-DDTHH:MM format
+            };
+            this.formMode = 'add';
+            this.showForm = true;
+        },
+
+        // Adds a new news item
+        async addNews() {
+            // Ensure the title and datetime are set
+            if (!this.currentItem.title || !this.currentItem.datetime) {
+                alert('Title and Date & Time are required');
+                return;
+            }
+
+            // Generate and assign ID
+            this.currentItem.id = this.generateId(this.currentItem.datetime, this.currentItem.title);
+
+            // Convert categories string to array
+            this.currentItem.categories = this.currentItem.categories.split(',').map(s => s.trim());
+
+            // Logic to add news...
+            const res = await sdk.runExtensionScript('add',{obj:this.currentItem});
+            if (res.ok)
+            {
+                this.news = res.data.reverse();
+            }
+            else
+            {
+                alert(res.error);
+            }
+            // Ensure to handle datetime, color, and faicon appropriately
+
+            this.showForm = false;
+
+            // Reload news list
+        },
+
+        // Prepares the form for editing an existing news item
+        prepareEditNews(newsItem) {
+            // Convert categories array to comma-separated string if needed
+            const categoriesString = Array.isArray(newsItem.categories) ? newsItem.categories.join(', ') : newsItem.categories;
+
+            this.currentItem = {
+                ...newsItem,
+                categories: categoriesString
+            };
+            this.formMode = 'edit';
+            this.showForm = true;
+        },
+
+        // Updates an existing news item
+        async updateNews() {
+            // Convert categories string to array
+            this.currentItem.categories = this.currentItem.categories.split(',').map(s => s.trim());
+
+            // Logic to update news...
+            // Ensure to handle datetime, color, and faicon appropriately
+
+            this.showForm = false;
+            // Reload news list
+
+            const res = await sdk.runExtensionScript('update',{obj:this.currentItem});
+            if (res.ok)
+            {
+                this.news = res.data.reverse();
+            }
+            else
+            {
+                alert(res.error);
+            }
+        },
+
+        // Deletes a news item
+        async deleteNews(id) {
+            const res = await sdk.runExtensionScript('del',{id});
+            if (res.ok)
+            {
+                this.news = res.data.reverse();
+            }
+            else
+            {
+                alert(res.error);
+            }
+        },
+
+        // Initializes the component by loading the news list
+        async init() {
+            const res = await sdk.runExtensionScript('list',{});
+            this.news = res.ok ? res.data.reverse() : [];
+        }
+    }
+}
+</script>
+
+</body>
+</html>
