@@ -26,7 +26,7 @@
   categories:
     - dog
   color: green
-  faicon: dog
+  faicon: horse
   datetime: 2021-05-01 23:55
   title: Puppies are great too
   image:
@@ -45,11 +45,3 @@
   links:
     - href: https://en.wikipedia.org/wiki/Dog
       linkText: Dog
-- categories:
-    - test
-  color: '#000000'
-  faicon: teset
-  datetime: 2023-11-15 16:29
-  title: test
-  id: 2023-11-15-16-29-test
-  body: There'll be dragons
