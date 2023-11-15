@@ -5,3 +5,4 @@ author: Omnitool.ai team
 origin: https://github.com/omnitool-ai/omni-core-newsfeed.git
 client:
   addToWorkbench: true
+  addToSidebar: true
