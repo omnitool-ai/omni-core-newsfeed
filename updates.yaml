@@ -120,3 +120,20 @@
 
     will do the trick
   id: 2023-11-15-16-57-Omnitool-0-5-3-Update
+- categories:
+    - extensions
+    - updates
+  color: '#000000'
+  faicon: pen
+  datetime: 2023-11-15 17:45
+  title: 'New Extension: TLDraw '
+  body: >2-
+     [TLDraw](https://www.tldraw.com/) is a powerful whiteboarding solution that allows quick creation on diagrams and sketches - perfect for feeding into the new GPT-4 Visual Model or it's Open Source Cousin LLava to try out these new vision transformers - for example by asking them to turn the sketch into a website.
+
+    We also added a new Website Creator recipe to demonstrate these
+    capabilities. 
+
+
+    You can find **omni-extension-tldraw** in the Extension Manager in Omnitool
+    v0.5.3.
+  id: 2023-11-15-17-45-New-Extension--TLDraw-
