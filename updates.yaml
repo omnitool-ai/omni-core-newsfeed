@@ -45,3 +45,74 @@
   links:
     - href: https://en.wikipedia.org/wiki/Dog
       linkText: Dog
+- categories:
+    - updates
+    - new_features
+  color: '#ff8040'
+  faicon: computer
+  datetime: 2023-11-15 16:57
+  title: Omnitool 0.5.3 Update
+  body: >-
+    **Code Cleanup**:
+
+    - Removed unnecessary test scripts and files.  
+
+    - Cleaned up package.json.mine and other files.  
+
+    - Fixed dangling markers and lint errors.
+
+
+    **Documentation Update**:
+
+    - Revised and updated README.md.
+
+
+    **Debugging and Error Handling Enhancements**:
+
+    - Improved extension logging.  
+    
+    - Added new error code mapping.
+
+
+    **Functionality and UI Improvements**
+
+    - Enabled toggle disable on block to mark recipe as dirty.  
+
+    - Added new tldraw extension for quickly scribbling sketches for diffusions  
+    models or visual transformers (“make a website based on this diagram”).  
+
+    - Introduced support for HTML type and image arrays.  
+
+    - Utilized makeToast in omni-utils for feedback on looping. 
+
+    - Fixed context sizes for specific OpenAI models.  
+
+    - Relocated developer tool menu to Sidebar.  
+
+    - Updated video socket color scheme.  
+
+    - Added preview models from OpenAI (version 1106).  
+
+    - Implemented a button to toggle log viewer extension.  
+
+    - Fixed start.sh script.  
+
+    - Changed template extension repository to HTTPS.  
+
+    - Skip bundling in prod for even faster build speeds on yarn start.  
+
+    If you updated recently just using start.bat / start.sh should handle the
+    update, if not:
+
+    ```
+
+    git pull  
+
+    yarn install  
+
+    yarn start  -u -rb  
+
+    ```  
+
+    will do the trick
+  id: 2023-11-15-16-57-Omnitool-0-5-3-Update
