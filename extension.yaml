@@ -1,0 +1,7 @@
+title: Omnitool Newsfeed
+version: 0.0.1
+description: The Official Omnitool newsfeed providing changelog, new recipes, extensions and more. 
+author: Omnitool.ai team
+origin: <Your git repository here, ex) git@github.com:your-github-id/your-github-repo.git>
+client:
+  addToWorkbench: true

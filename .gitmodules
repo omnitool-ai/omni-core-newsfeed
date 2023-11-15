@@ -1,0 +1,3 @@
+[submodule "src/static-timeline-generator"]
+	path = src/static-timeline-generator
+	url = https://github.com/molly/static-timeline-generator.git
