@@ -2,8 +2,8 @@
 - categories:
     - updates
     - features
-  color: green
-  faicon: pen
+  color: black
+  faicon: bullhorn
   datetime: 2023-11-15 16:57
   title: Omnitool 0.5.3 Update
   image:
@@ -78,7 +78,7 @@
     - extensions
     - updates
   color: black
-  faicon: pen
+  faicon: check
   datetime: 2023-11-15 17:45
   title: 'New Extension: TLDraw '
   body: >2-
