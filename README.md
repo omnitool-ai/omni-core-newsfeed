@@ -13,7 +13,7 @@ Install via the omnitool extension manager
 - Install dev dependencies:
 ```
 cd src
-git submodule add https://github.com/mercenaries-ai/static-timeline-generator.git
+git submodule update --init
 cd static-timeline-generator
 yarn install
 yarn build
