@@ -77,7 +77,7 @@
 - categories:
     - extensions
     - updates
-  color: '#000000'
+  color: black
   faicon: pen
   datetime: 2023-11-15 17:45
   title: 'New Extension: TLDraw '
