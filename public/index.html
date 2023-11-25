@@ -63,6 +63,44 @@
         
         <div
           class="timeline-entry"
+          data-category="updates"
+          aria-hidden="false"
+        >
+          <div class="timeline-icon green" title="check">
+            
+            <i class="fas fa-check" aria-hidden="true"></i>
+            
+          </div>
+          <div class="timeline-description markdown-body">
+            <span class="timestamp"
+              ><time datetime="2023-11-25 18:34"
+                >November 25, 2023 6:34 PM</time
+              ></span
+            >
+            <h2>
+              <a id="2023-11-25-18-34-Upcoming--Local-Model-Support" href="#2023-11-25-18-34-Upcoming--Local-Model-Support"><i class="fas fa-link"></i></a>Upcoming: Local Model Support
+            </h2>
+              <p>Much of AI progress currently is bi-furcated, models from proprietary vendors like Google, Anthropic and OpenAI on one side, Open Source models such as Stable Diffusion, Meta&#39;s LLama Family or Mistral on the other.</p>
+<p>Omnitool strives to bring you the best of both worlds, and with the next update, Omnitool will gain the ability to use local APIs of your choosing.</p>
+<p>🥳🥳 With the next version of Omnitool, we are shipping support for local AI tooling! 🥳🥳</p>
+<p>Initially supported:</p>
+<ul>
+<li><a target='_blank' href="https://lmstudio.ai/">LM Studio</a>  - A local LLM platform running open source models based on llama.cpp.</li>
+<li><a target='_blank' href="https://github.com/oobabooga/text-generation-webui">Oobabooga</a> - Another popular local LLM platform with wide compatibility.</li>
+<li><a target='_blank' href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">Automatic1111</a> - The cutting edge Stable Diffusion tooling for your local machine.</li>
+<li><a target='_blank' href="https://github.com/vladmandic/automatic">SD-Next</a> - A polished fork of Automatic1111 focusing on usability.</li>
+<li><a target='_blank' href="https://docs.paperless-ngx.com/">Paperless-ngx</a> - A powerful document management, indexing and OCR platform.</li>
+<li><a target='_blank' href="https://qdrant.tech/">Qdrant</a> - A locally hosted vector database for embedding storage.
+<strong>But local support does not stop there!</strong></li>
+</ul>
+<p>These predefined tools ship with blocks created by the omnitool.ai team. However, from the next version onwards, you are able to define and load your own API definitions directly from the data.local directory of your server, allowing you to import any other openapi3 compatible API (or provide your own openapi specs for other REST APIs)!
+This means you can create your own blocks going forward!</p>
+  
+          </div>
+        </div>
+        
+        <div
+          class="timeline-entry"
           data-category="extensions,updates"
           aria-hidden="false"
         >
@@ -81,7 +119,7 @@
               <a id="2023-11-15-17-45-New-Extension--TLDraw-" href="#2023-11-15-17-45-New-Extension--TLDraw-"><i class="fas fa-link"></i></a>New Extension: TLDraw 
             </h2>
               <p> <a target='_blank' href="https://www.tldraw.com/">TLDraw</a> is a powerful whiteboarding solution that allows quick creation on diagrams and sketches - perfect for feeding into the new GPT-4 Visual Model or it&#39;s Open Source Cousin LLava to try out these new vision transformers - for example by asking them to turn the sketch into a website.</p>
-<p>We also added a new Website Creator recipe to demonstrate these capabilities. </p>
+<p>We also added a new Website Creator recipe to demonstrate these capabilities.</p>
 <p>You can find <strong>omni-extension-tldraw</strong> in the Extension Manager in Omnitool v0.5.3.</p>
   
           </div>
@@ -116,8 +154,8 @@
             </div>
               <p><strong>Code Cleanup</strong>:</p>
 <ul>
-<li>Removed unnecessary test scripts and files.  </li>
-<li>Cleaned up package.json.mine and other files.  </li>
+<li>Removed unnecessary test scripts and files.</li>
+<li>Cleaned up package.json.mine and other files.</li>
 <li>Fixed dangling markers and lint errors.</li>
 </ul>
 <p><strong>Documentation Update</strong>:</p>
@@ -126,27 +164,28 @@
 </ul>
 <p><strong>Debugging and Error Handling Enhancements</strong>:</p>
 <ul>
-<li>Improved extension logging.  </li>
+<li>Improved extension logging.</li>
 <li>Added new error code mapping.</li>
 </ul>
 <p><strong>Functionality and UI Improvements</strong></p>
 <ul>
-<li>Enabled toggle disable on block to mark recipe as dirty.  </li>
-<li>Added new tldraw extension for quickly scribbling sketches for diffusions   models or visual transformers (“make a website based on this diagram”).  </li>
-<li>Introduced support for HTML type and image arrays.  </li>
-<li>Utilized makeToast in omni-utils for feedback on looping. </li>
-<li>Fixed context sizes for specific OpenAI models.  </li>
-<li>Relocated developer tool menu to Sidebar.  </li>
-<li>Updated video socket color scheme.  </li>
-<li>Added preview models from OpenAI (version 1106).  </li>
-<li>Implemented a button to toggle log viewer extension.  </li>
-<li>Fixed start.sh script.  </li>
-<li>Changed template extension repository to HTTPS.  </li>
-<li>Skip bundling in prod for even faster build speeds on yarn start.<br>If you updated recently just using start.bat / start.sh should handle the update, if not:</li>
+<li>Enabled toggle disable on block to mark recipe as dirty.</li>
+<li>Added new tldraw extension for quickly scribbling sketches for diffusions   models or visual transformers (“make a website based on this diagram”).</li>
+<li>Introduced support for HTML type and image arrays.</li>
+<li>Utilized makeToast in omni-utils for feedback on looping.</li>
+<li>Fixed context sizes for specific OpenAI models.</li>
+<li>Relocated developer tool menu to Sidebar.</li>
+<li>Updated video socket color scheme.</li>
+<li>Added preview models from OpenAI (version 1106).</li>
+<li>Implemented a button to toggle log viewer extension.</li>
+<li>Fixed start.sh script.</li>
+<li>Changed template extension repository to HTTPS.</li>
+<li>Skip bundling in prod for even faster build speeds on yarn start.
+If you updated recently just using start.bat / start.sh should handle the update, if not:</li>
 </ul>
-<pre><code>git pull  
-yarn install  
-yarn start  -u -rb  
+<pre><code>git pull
+yarn install
+yarn start  -u -rb
 </code></pre>
 <p>will do the trick</p>
   

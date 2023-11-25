@@ -1,8 +1,12 @@
 title: Omnitool Newsfeed
 version: 0.0.1
-description: The Official Omnitool newsfeed providing changelog, new recipes, extensions and more. 
+description: The Official Omnitool newsfeed providing changelog, new recipes, extensions and more.
 author: Omnitool.ai team
 origin: https://github.com/omnitool-ai/omni-core-newsfeed.git
 client:
   addToWorkbench: true
   addToSidebar: true
+  winbox:
+    height: 800
+    width: 1024
+    autosize: false
