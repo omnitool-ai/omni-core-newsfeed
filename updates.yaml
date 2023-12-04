@@ -144,3 +144,75 @@
     This means you can create your own blocks going forward!
 
   id: 2023-11-25-18-34-Upcoming--Local-Model-Support
+- categories:
+    - updates
+    - features
+  color: black
+  faicon: bullhorn
+  datetime: 2023-12-04 19:41
+  title: Omnitool 0.6.0 Update
+  image:
+    link: /favicon.jpg
+    src: /favicon.jpg
+  body: >-
+    **Code Fixes and Updates**
+
+    - Fixed various issues including Eslint being overly aggressive, a bug where the json_unpacker would fail if the json provided was an array, db id, and dir creation order.
+
+    - Made minor fixes, updates, and clean up. Tackled some edge cases and offline situations for community known extensions.
+
+    - Updated error messages, readme, and removed pocketbase.
+    
+
+    **New blocks**
+
+    - Read Files from Directory - Read files from <server>/data.local/file-import/<user-id>
+
+    - Write Files to Directory - Write files to  <server>/data.local/file-export/<user-id>
+
+
+    **Local Templates and Extension**
+
+    - Added support for local templates, server extension in commonJS, and ability to pin extensions to the sidebar. Changed developer tool icon and added newsfeed extensions.
+
+    - Added and fixed features in file_output block, json input to chat_input block, and run_recipe block. Added new huggingface get models block.
+    
+    - Improved control picking logic for password fields and handling of community extensions.
+
+    - Use the /local command to install or remove local APIs.
+
+    - Initial local templates  include support for:
+      - LM-studio,
+      - Oobabooga Text Generation UI,
+      - Automatic1111/SD-Next,
+      - Paperless-ng
+
+    **Database Migration and Integration**
+
+    - Forced pnp.cjs to prevent upstream projects from impacting mercs build. Upgraded yarn to 4.0.2.
+
+    - Ensured to convert object to array for block choice. Marked db migration more stably with file marker write.
+
+    - Moved auth to sqlite db, ensured sqlite db even if migration is not required. Added migration script from pocket to sqlite.
+
+    **User Interface and Experience Improvements**
+    - Integrated CDN, created single result socket when schema doesn't have top property, and hid _omni_result socket when patch exists.
+
+    - Removed database admin from the sidebar and old logos. Added tooltip for TextControl and support for version and format on component.
+
+    - Standardized build scripts, explicit sourcemap type, and log feedback. Added support for local templates and extension.
+
+    If you updated recently just using start.bat / start.sh should handle the
+    update, if not:
+
+    ```
+
+    git pull
+
+    yarn install
+
+    yarn start  -u -rb
+
+    ```
+
+    will do the trick

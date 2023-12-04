@@ -63,6 +63,77 @@
         
         <div
           class="timeline-entry"
+          data-category="updates,features"
+          aria-hidden="false"
+        >
+          <div class="timeline-icon black" title="bullhorn">
+            
+            <i class="fas fa-bullhorn" aria-hidden="true"></i>
+            
+          </div>
+          <div class="timeline-description markdown-body">
+            <span class="timestamp"
+              ><time datetime="2023-12-04 19:41"
+                >December 4, 2023 7:41 PM</time
+              ></span
+            >
+            <h2>
+              <a id="" href="#"><i class="fas fa-link"></i></a>Omnitool 0.6.0 Update
+            </h2>
+            
+            <div class="captioned-image image-right">
+              <a href="/favicon.jpg" target="_blank"
+                >
+                <img src="/favicon.jpg" alt="/favicon.jpg" target="_blank" />
+                </a
+              > 
+            </div>
+              <p><strong>Code Fixes and Updates</strong></p>
+<ul>
+<li>Fixed various issues including Eslint being overly aggressive, a bug where the json_unpacker would fail if the json provided was an array, db id, and dir creation order.</li>
+<li>Made minor fixes, updates, and clean up. Tackled some edge cases and offline situations for community known extensions.</li>
+<li>Updated error messages, readme, and removed pocketbase.</li>
+</ul>
+<p><strong>New blocks</strong></p>
+<ul>
+<li>Read Files from Directory - Read files from <server>/data.local/file-import/<user-id></li>
+<li>Write Files to Directory - Write files to  <server>/data.local/file-export/<user-id></li>
+</ul>
+<p><strong>Local Templates and Extension</strong></p>
+<ul>
+<li>Added support for local templates, server extension in commonJS, and ability to pin extensions to the sidebar. Changed developer tool icon and added newsfeed extensions.</li>
+<li>Added and fixed features in file_output block, json input to chat_input block, and run_recipe block. Added new huggingface get models block.</li>
+<li>Improved control picking logic for password fields and handling of community extensions.</li>
+<li>Use the /local command to install or remove local APIs.</li>
+<li>Initial local templates  include support for:<ul>
+<li>LM-studio,</li>
+<li>Oobabooga Text Generation UI,</li>
+<li>Automatic1111/SD-Next,</li>
+<li>Paperless-ng</li>
+</ul>
+</li>
+</ul>
+<p><strong>Database Migration and Integration</strong></p>
+<ul>
+<li>Forced pnp.cjs to prevent upstream projects from impacting mercs build. Upgraded yarn to 4.0.2.</li>
+<li>Ensured to convert object to array for block choice. Marked db migration more stably with file marker write.</li>
+<li>Moved auth to sqlite db, ensured sqlite db even if migration is not required. Added migration script from pocket to sqlite.
+<strong>User Interface and Experience Improvements</strong> - Integrated CDN, created single result socket when schema doesn&#39;t have top property, and hid _omni_result socket when patch exists.</li>
+<li>Removed database admin from the sidebar and old logos. Added tooltip for TextControl and support for version and format on component.</li>
+<li>Standardized build scripts, explicit sourcemap type, and log feedback. Added support for local templates and extension.
+If you updated recently just using start.bat / start.sh should handle the update, if not:</li>
+</ul>
+<pre><code>git pull
+yarn install
+yarn start  -u -rb
+</code></pre>
+<p>will do the trick</p>
+  
+          </div>
+        </div>
+        
+        <div
+          class="timeline-entry"
           data-category="updates"
           aria-hidden="false"
         >
