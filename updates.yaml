@@ -216,3 +216,42 @@
     ```
 
     will do the trick
+- categories:
+    - updates
+    - features
+  color: black
+  faicon: bullhorn
+  datetime: 2023-12-15 20:24
+  title: Omnitool 0.6.1 Update
+  image:
+    link: /favicon.jpg
+    src: /favicon.jpg
+  body: >-
+    **Feature Additions and Updates**
+
+    - Added local templates menu.
+    
+    - Added support for array in multipart/form-data.
+    
+    - Added default size for formio.
+    
+    - Support packaging of assets when importing/exporting recipes
+    
+    - Added server/settings/paths to .mercs.yaml to optionally specify a path for various functionalities. If a path is not specified, it defaults to its previously hardcoded value.
+
+
+    **Code Fixes and Refactoring**
+    
+    - Fix bug where user's recipes is not displayed correctly. 
+
+
+    **Miscellaneous Changes**
+    
+    - Updated Readme to include local AI tool support.
+    
+    - Blocked upstream lookup for yarn PnP builds which are not supported at the moment.
+
+
+    **Core Extensions**
+    
+    - Filtering options for each file format in File Manager
