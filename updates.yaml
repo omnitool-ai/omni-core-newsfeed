@@ -255,3 +255,32 @@
     **Core Extensions**
     
     - Filtering options for each file format in File Manager
+- categories:
+    - updates
+    - features
+  color: black
+  faicon: bullhorn
+  datetime: 2023-12-22 17:07
+  title: Omnitool 0.6.2 Update
+  image:
+    link: img/062.png
+    src: img/062.png
+  body: >-
+    **NEW API Support**
+
+    - Added support for API invocation of recipes
+
+    - Added support for API retrival of recipe results
+
+    - Sample implementation in examples/api.mjs with more documentation to follow!
+
+    - New "Recipe Output Block" now sets the results of the recipe
+    
+
+    **Installation & Bug fixes**
+
+    - Optimize startup times and stability for yarn start
+
+    - Resolved block registry fetch errors on certain machines
+
+    - Fixed "Load Recipe" search filtering
