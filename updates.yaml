@@ -284,3 +284,25 @@
     - Resolved block registry fetch errors on certain machines
 
     - Fixed "Load Recipe" search filtering
+- categories:
+    - updates
+    - features
+  color: black
+  faicon: bullhorn
+  datetime: 2024-1-10 12:50
+  title: Omnitool 1.0.0 Update
+  body: >-
+    **API updates**
+        
+    - generateJwtToken script recipeId parameter is now optional. You can also provide multiple recipeIds
+
+    
+    **Stability Fixes and Documentation**
+    
+    - Moved to stable release v1.0!
+    
+    - Fixed null assertion on recipe export
+    
+    - Updated README.md
+    
+    - Add GitHub Actions for automatic release
